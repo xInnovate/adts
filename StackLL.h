@@ -1,5 +1,8 @@
 //With a (raw) linked-list 
 
+#ifndef STACK_H
+#define STACK_H
+
 class Stack
 {
 private:
@@ -28,3 +31,4 @@ public:
 
 };
 
+#endif

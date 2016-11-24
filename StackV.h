@@ -1,5 +1,8 @@
 //Implementing a Stack ADT with a vector
 
+#ifndef STACK_H
+#define STACK_H
+
 #include <vector>
 using namespace std;
 
@@ -30,3 +33,5 @@ public:
    void clear();
 
 };
+
+#endif
