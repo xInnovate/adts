@@ -8,7 +8,7 @@ CFLAGS=-std=c++14 -c -Wall
 list: ListClient.o List.o
 	@printf "\033[33mLinking List ADT...\n\033[0m"
 	g++ ListClient.o List.o -o list.out
-	@printf "\nrun by typing './list.out'\n"
+	@printf "\nRun by typing 'make run-list'\n"
 
 ListClient.o: ListClient.cpp
 	@printf "\033[36mCompiling List ADT...\n\033[0m"
@@ -22,7 +22,7 @@ List.o: List.cpp
 stackv: StackVclient.o StackV.o
 	@printf "\033[33mLinking Stack ADT (vector implementation)...\n\033[0m"
 	g++ StackVclient.o StackV.o -o stackv.out
-	@printf "\nrun by typing './stackv.out'\n"
+	@printf "\nRun by typing 'make run-stackv'\n"
 
 StackVclient.o: StackVclient.cpp
 	@printf "\033[36mCompiling Stack ADT (vector implementation)...\n\033[0m"
@@ -38,7 +38,7 @@ stackl: StackLclient.o StackL.o List.o
 	@printf "\033[33mLinking Stack ADT (List ADT implementation)...\n\033[0m"
 	@printf "\033[1;33mNOTE: This requires the List ADT to be complete\n\033[0m"
 	g++ StackLclient.o StackL.o List.o -o stackl.out
-	@printf "\nrun by typing './stackl.out'\n"
+	@printf "\nRun by typing 'make run-stackl'\n"
 
 StackLclient.o: StackLclient.cpp
 	@printf "\033[36mCompiling Stack ADT (List ADT implementation)...\n\033[0m"
@@ -53,7 +53,7 @@ StackL.o: StackL.cpp
 stackll: StackLLclient.o StackLL.o
 	@printf "\033[33mLinking Stack ADT (Linked-list implementation)...\n\033[0m"
 	g++ StackLLclient.o StackLL.o -o stackll.out
-	@printf "\nrun by typing './stackll.out'\n"
+	@printf "\nRun by typing 'make run-stackll'\n"
 
 StackLLclient.o: StackLLclient.cpp
 	@printf "\033[36mCompiling Stack ADT (Linked-list implementation)...\n\033[0m"
@@ -66,7 +66,22 @@ StackLL.o: StackLL.cpp
 
 # if user types "make run" by accident
 run:
-	@printf "\033[31mtype the name of the executable to run\033[0m \n./list.out\n./stackl.out\n./stackll.out\n./stackv.out\n\n"
+	@printf "\033[31mTo run, use one of\033[0m \nmake run-list\nmake run-stackl\nmake run-stackll\nmake run-stackv\n\n"
+
+# correct run's below
+
+run-list:
+	./list.out
+
+run-stackl:
+	./stackl.out
+
+run-stackll:
+	./stackll.out
+
+run-stackv:
+	./stackv.out
+
 
 # Remove non-source files
 clean:
