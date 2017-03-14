@@ -1,9 +1,7 @@
-
 //Implementing a Stack ADT With a List ADT
 
 #ifndef STACK_H
 #define STACK_H
-
 
 #include "List.h"
 

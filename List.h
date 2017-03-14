@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>//used to be able to "throw" exceptions
+#include <list>
 using namespace std;
 
 #ifndef LIST_H
@@ -19,9 +20,12 @@ class List //begin List definition
      void remove(int k);//remove element at location k
      int size();//return the number of elements in the List
      
-     
      /** MISSING OPERATIONS */
      //... fill in ....
+     //List(); //default constructor
+     int getAt(int k);
+     void display();
+     void clear ();
 
 };//end List definition
 

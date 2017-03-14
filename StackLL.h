@@ -1,7 +1,7 @@
 //With a (raw) linked-list 
 
-#ifndef STACK_H
-#define STACK_H
+#ifndef STACKLL_H
+#define STACKLL_H
 
 class Stack
 {
