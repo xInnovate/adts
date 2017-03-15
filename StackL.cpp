@@ -1,20 +1,29 @@
 #include "StackL.h"
 #include <iostream>
-#include <stdexcept>//used to be able to "throw" exceptions
-#include <stack>
-
 
 int Stack::size()
 {
-	return num_elements
+	return data.size();
 }
 
+void Stack::push(int x)
+{
+	data.insert(x, 1);
+}
+
+void Stack::pop()
+{
+	data.remove(1);
+}
+
+int Stack::top()
+{
+	auto x = data.getAt(1);
+	return x;
+}
 
 
 void Stack::clear() //clears list and removes every element
 {
-	while (num_elements != 0)
-	{
-		List::remove(1);
-	}
+	data.~List();
 } //clear

@@ -8,7 +8,6 @@ class Stack
 private:
 
    class Node;
-
    Node* frontPtr = nullptr;
    int num_elements = 0;
 

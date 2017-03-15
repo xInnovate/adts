@@ -1,56 +1,74 @@
 #include "StackLL.h"
 #include <iostream>
-#include <stdexcept>//used to be able to "throw" exceptions
-#include <list>
+using namespace std;
+
+class Stack::Node
+{
+	public:
+	int data;
+	Node* link;
+};
 
 
 Stack::~Stack()
 {
-	while(num_elements > 0)
-    {
-		remove(1);
-	}
+	clear();
 }
 
 int Stack::size()
 {
-	return num_elements
+	return num_elements;
 }
 
-void Stack::remove(int k)
+void Stack::push(int k)
 {
-	if (k < 1 or k > num_elements)//if the location is invalid 
+	Node* newPtr = new Node[k];
+	if (frontPtr == nullptr)
 	{
-		throw out_of_range("List::removeAt(...)");//throw an "out_of_range" exception
-	}
-	Node* delPtr;
-	
-	if(k == 1)
-	{
-		delPtr = frontPtr;
-	    frontPtr = frontPtr->link;
+		frontPtr = newPtr;
 	}
 	else
 	{
-		Node* tmpPtr = frontPtr;
-	    int loc = 1;    
-        while(loc != k-1)//get pointer to (k-1)th node
-	    {
-			tmpPtr = tmpPtr->link;
-	        loc++;
-	    }
-	    delPtr = tmpPtr->link;
-	    tmpPtr->link = delPtr->link;
-	 }
-	
-	 delete delPtr;
-	 num_elements--;
+		newPtr->link = frontPtr;
+		frontPtr = newPtr;
+	}
+	num_elements++;
+}
+
+void Stack::pop()
+{
+	Node* delPtr = new Node;
+	if (frontPtr == nullptr) //stack is empty
+	{
+		return;
+	}
+	else
+	{
+		delPtr = frontPtr;
+		frontPtr = frontPtr->link;
+	}
+	delete delPtr;
+	num_elements--;
+}
+
+int Stack::top()
+{
+	Node* temp = new Node;
+	temp = frontPtr;
+	if (frontPtr == nullptr) //stack is empty
+	{
+		cout << "The stack is empty." << endl;
+	}
+	else
+	{
+		return temp->data;
+	}
 }
 
 void Stack::clear() //clears list and removes every element
 {
 	while (num_elements != 0)
 	{
-		List::remove(1);
+		pop();
 	}
 } //clear
